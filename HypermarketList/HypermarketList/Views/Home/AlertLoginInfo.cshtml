@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+@if (TempData["message"] != null)
+{
+    switch (TempData["code"])
+    {
+        case 0: //登入錯誤
+            <script type="text/javascript">
+                var message = @Html.Raw(Json.Encode(TempData["message"]));
+                alert(message);
+                setTimeout(function(){location.href="@Url.Action("Login")"}, 0);
+            </script>
+            break;
+        case 1: //登入成功
+            <script type="text/javascript">
+                var message = @Html.Raw(Json.Encode(TempData["message"]));
+                alert(message);
+                setTimeout(function(){location.href="@Url.Action("Index", new { name = TempData["username"] })"}, 0);
+            </script>
+            break;
+    }
+}

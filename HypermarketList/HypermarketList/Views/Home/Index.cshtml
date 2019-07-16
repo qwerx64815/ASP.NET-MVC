@@ -1,0 +1,91 @@
+﻿@model IEnumerable<HypermarketList.Models.HypermarketEntities>
+
+@{
+    ViewBag.Title = "Discovery Hypermarket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section LoginedSection
+{
+    @if (ViewBag.username == "")
+    {
+        <li><a href="@Url.Action("Login")">登入</a></li>
+        <li><a href="@Url.Action("Register")">註冊</a></li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("Logout")">登出</a></li>
+    }
+}
+
+<div class="main-w3pvt mian-content-wthree text-center" id="home">
+    <div>
+        <div class="style-banner mx-auto">
+            <div class="container">
+                <h3 class="text-wh font-weight-bold" 
+                    style="background:rgba(0, 0, 0, 0.6); padding:30px; color:#fff;">
+                    現在就開始搜尋您心目中的 <span>量販店</span>
+                </h3>
+                <!-- form -->
+                <div class="home-form-w3ls mt-5 pt-lg-4">
+                    @using (Html.BeginForm("Search", "Home", new { name = ViewBag.username }, FormMethod.Post))
+                    {
+                        <div style="background:rgba(0,0,0,0.6); padding:30px">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <select required="" class="form-control" name="CompanyName">
+                                            <option value="">請選擇量販店</option>
+                                            <option value="好市多">好市多</option>
+                                            <option value="大潤發">大潤發</option>
+                                            <option value="家樂福">家樂福</option>
+                                            <option value="愛買">愛買</option>
+                                            <option value="頂好">頂好</option>
+                                            <option value="全聯">全聯</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" name="City">
+                                            <option value="">請選擇縣市</option>
+                                            <option value="基隆市">基隆市</option>
+                                            <option value="台北市">台北市</option>
+                                            <option value="新北市">新北市</option>
+                                            <option value="桃園市">桃園市</option>
+                                            <option value="新竹市">新竹市</option>
+                                            <option value="新竹縣">新竹縣</option>
+                                            <option value="苗栗縣">苗栗縣</option>
+                                            <option value="台中市">台中市</option>
+                                            <option value="彰化縣">彰化縣</option>
+                                            <option value="南投縣">南投縣</option>
+                                            <option value="雲林縣">雲林縣</option>
+                                            <option value="嘉義市">嘉義市</option>
+                                            <option value="嘉義縣">嘉義縣</option>
+                                            <option value="台南市">台南市</option>
+                                            <option value="高雄市">高雄市</option>
+                                            <option value="屏東縣">屏東縣</option>
+                                            <option value="臺東縣">臺東縣</option>
+                                            <option value="花蓮縣">花蓮縣</option>
+                                            <option value="宜蘭縣">宜蘭縣</option>
+                                            <option value="澎湖縣">澎湖縣</option>
+                                            <option value="金門縣">金門縣</option>
+                                            <option value="連江縣">連江縣</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <br />
+                                        <input class="form-control" type="text" name="BranchName" placeholder="請輸入分店名稱">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn_apt">搜尋</button>
+                        </div>
+                    }
+                    <br /><br /><br /><br />
+                </div>
+            </div>
+            <!-- //form -->
+        </div>
+    </div>
+</div>

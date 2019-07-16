@@ -1,0 +1,88 @@
+﻿@model IEnumerable<HypermarketList.Models.Branch>
+
+@{
+    ViewBag.Title = "搜尋頁面";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section LoginedSection
+{
+    @if (ViewBag.username == "")
+    {
+        <li><a href="@Url.Action("Login")">登入</a></li>
+        <li><a href="@Url.Action("Register")">註冊</a></li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("Logout")">登出</a></li>
+    }
+}
+<section class="clients text-center" id="testi" style="background: url(../images/SearchBG.jpg) no-repeat center fixed;">
+    <div class="container py-xl-5 py-lg-3" style="background:rgba(192, 192, 192, 0.3);">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.bName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.startTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.endTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company.cName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.startTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.endTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company.cName)
+                </td>
+                <td>
+                    @if (ViewBag.username != "")
+                    {
+
+                        @Html.ActionLink("編輯", "Edit", new { name = ViewBag.username, bNo = item.bNo })
+                        <br />
+                        @Html.ActionLink("刪除", "Delete",
+                            new {
+                                name = ViewBag.username,
+                                bNo = item.bNo,
+                                CompanyName = TempData["CompanyName"],
+                                City = TempData["City"],
+                                BranchName = TempData["BranchName"]
+                            },
+                            new { onclick = "return confirm('確定要刪除嗎？')" })
+                    }
+                </td>
+            </tr>
+            }
+
+        </table>
+    </div>
+</section>

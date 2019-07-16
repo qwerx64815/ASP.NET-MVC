@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HypermarketModelStoreContainer" CdmEntityContainer="HypermarketEntities">
+    <EntitySetMapping Name="Branch">
+      <EntityTypeMapping TypeName="HypermarketModel.Branch">
+        <MappingFragment StoreEntitySet="Branch">
+          <ScalarProperty Name="bNo" ColumnName="bNo" />
+          <ScalarProperty Name="cId" ColumnName="cId" />
+          <ScalarProperty Name="bName" ColumnName="bName" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="HypermarketModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="cId" ColumnName="cId" />
+          <ScalarProperty Name="cName" ColumnName="cName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Member">
+      <EntityTypeMapping TypeName="HypermarketModel.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="mId" ColumnName="mId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

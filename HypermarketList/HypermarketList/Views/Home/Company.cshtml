@@ -1,0 +1,260 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section LoginedSection
+{
+    @if (ViewBag.username == "")
+    {
+        <li><a href="@Url.Action("Login")">登入</a></li>
+        <li><a href="@Url.Action("Register")">註冊</a></li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("Logout")">登出</a></li>
+    }
+}
+
+
+@switch (TempData["company"])
+{
+    case "Costco":
+        ViewBag.Title = "好市多 Costco";
+        <section class="clients py-5 text-center" id="testi" style="background: url(../images/CostcoBG.jpg) no-repeat center fixed;">
+            <div class="container py-xl-5 py-lg-3" style="background:rgba(192, 192, 192, 0.3);">
+                <h3 class="title-w3 mb-2 mb-sm-5 text-center text-wh font-weight-bold"><span style="font-size:50px">公</span>司介紹</h3>
+                <div class="feedback-info">
+                    <div class="feedback-top">
+                        <img src="../images/Costco.jpg" alt=" " class="img-fluid">
+                        <h4 class="mt-4 text-wh font-weight-bold mb-4">好市多 Costco</h4>
+                        <section class="font-weight-bold">
+                            <p style="font-size:20px">
+                                Costco 是美國第一大連鎖會員制倉儲式量販店。<br />
+                                在全球九個國家和地區設有超過500家的分店，<br />
+                                其中大部分都位於美國境內，加拿大則是最大國外市場。<br />
+                                全球企業總部設於華盛頓州的伊薩誇，並在鄰近的西雅圖設有旗艦店。<br />
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                好市多除了倉儲式的銷售方式為特色之外，<br />
+                                營利方式都在於以低價格提供高品質的商品。<br />
+                                精心挑選少類而較實用的銷售商品、與排行榜靠前的名牌，<br />
+                                針對此類項目大量進貨來壓低成本，因此零售價可以壓低。<br />
+                                同時也都向會員收取小額的年費，這也是主要的利潤來源，<br />
+                                高服務和價格上的回饋成功迎合小型企業主與一般家庭大量採買的喜好。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                過去幾年來，好市多已逐漸擴展其產品種類和服務。<br />
+                                過去只偏向販售盒裝或箱裝的產品，只需拆開包裝就能上架，<br />
+                                而最近開始販賣其他多元化的產品，如蔬果、肉類、乳製品、海鮮、<br />
+                                烘焙食物、服飾、書籍、軟體、家用電器、珠寶、藝術、酒類和家具。
+                            </p>
+                        </section>
+                    </div>
+                </div>
+                </div>
+            </section>
+        break;
+    case "RT-MART":
+        ViewBag.Title = "大潤發 RT-MART";
+        <section class="clients py-5 text-center" id="testi" style="background: url(../images/RT-MARTBG.jpg) no-repeat center fixed;">
+            <div class="container py-xl-5 py-lg-3" style=" background:rgba(192, 192, 192, 0.3);">
+                <h3 class="title-w3 mb-2 mb-sm-5 text-center text-wh font-weight-bold"><span style="font-size:50px">公</span>司介紹</h3>
+                <div class="feedback-info">
+                    <div class="feedback-top">
+                        <img src="../images/RT-MART.jpg" alt="大潤發 RT-MART" class="img-fluid" style="width: 50%">
+                        <h4 class="mt-4 text-wh font-weight-bold mb-4">大潤發 RT-MART</h4>
+                        <section class="font-weight-bold">
+                            <p style="font-size:20px">
+                                我們相信品質比任何事情都還要重要，<br />
+                                生活用品採購是日常生活不可或缺的一部分，<br />
+                                所以我們希望顧客在大潤發的採購體驗是享受的，<br />
+                                甚至是滿意與愉悅的。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                我們在此要與您們一同分享我們的理念與使命，<br />
+                                那就是：變成讓您的生活變得更好的其中一部份。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                這裡是我們與你們分享促銷訊息、活動消息以及趣聞的地方，<br />
+                                也是我們聆聽來自您的需求與建議，<br />
+                                並且與之改善以期能提供給您更好的服務的地方。
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        break;
+    case "Carrefour":
+        ViewBag.Title = "家樂福 Carrefour";
+        <section class="clients py-5 text-center" id="testi" style="background: url(../images/CarrefourBG.jpg) no-repeat center fixed;">
+            <div class="container py-xl-5 py-lg-3" style=" background:rgba(192, 192, 192, 0.3);">
+                <h3 class="title-w3 mb-2 mb-sm-5 text-center text-wh font-weight-bold"><span style="font-size:50px">公</span>司介紹</h3>
+                <div class="feedback-info">
+                    <div class="feedback-top">
+                        <img src="../images/Carrefour.jpg" alt="家樂福 Carrefour" class="img-fluid" style="width: 50%">
+                        <h4 class="mt-4 text-wh font-weight-bold mb-4">家樂福 Carrefour</h4>
+                        <section class="font-weight-bold">
+                            <p style="font-size:20px">
+                                家樂福於1959年創立於法國，位列世界首要的零售集團。<br />
+                                在法國、其他歐洲國家及台灣等，皆為當地規模最大之量販業者。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                家樂福著名醒目的紅藍白企業標誌，看似簡單，卻饒富意義，<br />
+                                裡面隱含著家樂福創立至今的企業願景與對消費者的承諾。<br />
+                                Carrefour是母公司的法文名，台譯「家樂福」是<br />
+                                「家家快樂又幸福」的意思，充分呼應了家樂福的經營理念。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                家樂福目前在台灣已超過百家店，並具有多元發展的店家型態，<br />
+                                如量販店、便利購及線上購物等，期待具國際觀、內部創業精神、<br />
+                                有企圖心兼具實踐力的你快快加入我們！
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        break;
+    case "a.mart":
+        ViewBag.Title = "愛買 a.mart";
+        <section class="clients py-5 text-center" id="testi" style="background: url(../images/a.martBG.jpg) no-repeat center fixed;">
+            <div class="container py-xl-5 py-lg-3" style=" background:rgba(192, 192, 192, 0.3);">
+                <h3 class="title-w3 mb-2 mb-sm-5 text-center text-wh font-weight-bold"><span style="font-size:50px">公</span>司介紹</h3>
+                <div class="feedback-info">
+                    <div class="feedback-top">
+                        <img src="../images/a.mart.png" alt="愛買 a.mart" class="img-fluid" style="width: 50%">
+                        <h4 class="mt-4 text-wh font-weight-bold mb-4">愛買 a.mart</h4>
+                        <section class="font-weight-bold">
+                            <p style="font-size:20px">
+                                現今家庭型態已多元化，無論家庭的組成、大小，只要是您認為的家，<br />
+                                我們都重視在乎！因為愛買相信，每個人的家，都應該有被尊重的權利。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                愛買提出「為家，加一點愛」(A better life for every family)<br />
+                                作為品牌宗旨，就是要告訴廣大消費者，您所用心呵護的家，<br />
+                                我們都將以愛為出發點，持續提供給您最優質的商品，帶給您最好的生活品質及服務體驗。
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        break;
+    case "Wellcome":
+        ViewBag.Title = "頂好 Wellcome";
+        <section class="clients py-5 text-center" id="testi" style="background: url(../images/WellcomeBG.jpg) no-repeat center fixed;">
+            <div class="container py-xl-5 py-lg-3" style=" background:rgba(192, 192, 192, 0.3);">
+                <h3 class="title-w3 mb-2 mb-sm-5 text-center text-wh font-weight-bold"><span style="font-size:50px">公</span>司介紹</h3>
+                <div class="feedback-info">
+                    <div class="feedback-top">
+                        <img src="../images/wellcome.jpg" alt="頂好 Wellcome" class="img-fluid" style="width: 50%">
+                        <h4 class="mt-4 text-wh font-weight-bold mb-4">頂好 Wellcome</h4>
+                        <section class="font-weight-bold">
+                            <p style="font-size:20px">
+                                以經營頂好Wellcome超市為主，引進國外超市的新觀念、新科技<br />
+                                及新管理模式，並結合台灣消費者需求創造台灣超市連鎖業的歷史新頁。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                致力零售業的經營發展，已成為一個國際性的食品及藥品零售企業集團，<br />
+                                為亞太地區的食品及藥房零售業務市場上的領導者之一。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                頂好Wellcome積極瞭解消費者的需求，提供「品質頂好、價格實惠」<br />
+                                兩大承諾與三大品質保證，讓您輕輕鬆鬆就能享有最聰明的消費選擇。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                頂好Wellcome承諾，堅持優質嚴選、每日新鮮配送，店內所有<br />
+                                生鮮食品皆通過農藥把關三關卡，您可以安心採購。
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        break;
+    case "PX MART":
+        ViewBag.Title = "全聯 PX MART";
+        <section class="clients py-5 text-center" id="testi" style="background: url(../images/PXMARTBG.jpg) no-repeat center fixed;">
+            <div class="container py-xl-5 py-lg-3" style=" background:rgba(192, 192, 192, 0.3);">
+                <h3 class="title-w3 mb-2 mb-sm-5 text-center text-wh font-weight-bold"><span style="font-size:50px">公</span>司介紹</h3>
+                <div class="feedback-info">
+                    <div class="feedback-top">
+                        <img src="../images/PX MART.jpg" alt="全聯 PX MART" class="img-fluid" style="width: 50%">
+                        <h4 class="mt-4 text-wh font-weight-bold mb-4">全聯 PX MART</h4>
+                        <section class="font-weight-bold">
+                            <p style="font-size:20px">
+                                邁向「治天下」的階段，打造智慧總部，成為第一線營業所同仁<br />
+                                最堅實的後盾，提供消費者更優質的購物體驗，打造最懂得顧客的賣場，<br />
+                                引領消費者買進幸福好生活。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                用心與台灣在地共好，打造消費者感到購物樂趣的賣場，<br />
+                                成為台灣第一、世界一流的超市。企業願景以「買進美好生活」為核心理念，打造幸福的企業。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                過去幾年來，好市多已逐漸擴展其產品種類和服務。過去只偏向販售盒裝或箱裝的產品，只需拆開包裝
+                                就能上架，而最近開始販賣其他多元化的產品，如蔬果、肉類、乳製品、海鮮、烘焙食物、花、服飾、
+                                書籍、軟體、家用電器、珠寶、藝術、酒類和家具。
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        break;
+    default:
+        ViewBag.Title = "Costco 好市多";
+        <section class="clients py-5 text-center" id="testi" style="background: url(../images/CostcoBG.jpg) no-repeat center fixed;">
+            <div class="container py-xl-5 py-lg-3" style=" background:rgba(192, 192, 192, 0.3);">
+                <h3 class="title-w3 mb-2 mb-sm-5 text-center text-wh font-weight-bold"><span style="font-size:50px">公</span>司介紹</h3>
+                <div class="feedback-info">
+                    <div class="feedback-top">
+                        <img src="../images/Costco.jpg" alt=" " class="img-fluid">
+                        <h4 class="mt-4 text-wh font-weight-bold mb-4">好市多 Costco</h4>
+                        <section class="font-weight-bold">
+                            <p style="font-size:20px">
+                                Costco 是美國第一大連鎖會員制倉儲式量販店。<br />
+                                在全球九個國家和地區設有超過500家的分店，<br />
+                                其中大部分都位於美國境內，加拿大則是最大國外市場。<br />
+                                全球企業總部設於華盛頓州的伊薩誇，並在鄰近的西雅圖設有旗艦店。<br />
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                好市多除了倉儲式的銷售方式為特色之外，<br />
+                                營利方式都在於以低價格提供高品質的商品。<br />
+                                精心挑選少類而較實用的銷售商品、與排行榜靠前的名牌，<br />
+                                針對此類項目大量進貨來壓低成本，因此零售價可以壓低。<br />
+                                同時也都向會員收取小額的年費，這也是主要的利潤來源，<br />
+                                高服務和價格上的回饋成功迎合小型企業主與一般家庭大量採買的喜好。
+                            </p>
+                            <br />
+                            <p style="font-size:20px">
+                                過去幾年來，好市多已逐漸擴展其產品種類和服務。<br />
+                                過去只偏向販售盒裝或箱裝的產品，只需拆開包裝就能上架，<br />
+                                而最近開始販賣其他多元化的產品，如蔬果、肉類、乳製品、海鮮、<br />
+                                烘焙食物、服飾、書籍、軟體、家用電器、珠寶、藝術、酒類和家具。
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        break;
+}
+
+
+

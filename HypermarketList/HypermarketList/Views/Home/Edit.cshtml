@@ -1,0 +1,126 @@
+﻿@model HypermarketList.Models.Branch
+
+@{
+    ViewBag.Title = "資料編輯";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section LoginedSection
+{
+    @if (ViewBag.username == "")
+    {
+        <li><a href="@Url.Action("Login")">登入</a></li>
+        <li><a href="@Url.Action("Register")">註冊</a></li>
+    }
+    else
+    {
+        <li><a href="@Url.Action("Logout")">登出</a></li>
+    }
+}
+
+<div class="inner-banner-w3ls py-5" id="home" style="background: url(../images/SearchBG.jpg) no-repeat center fixed;">
+    <div class="container py-xl-5 py-lg-3">
+        <div class="modal-body my-5 pt-4" style="background:rgba(192, 192, 192, 0.3);">
+            @using (Html.BeginForm("Edit", "Home",
+                new
+                {
+                    name = ViewBag.username,
+                    CompanyName = TempData["CompanyName"],
+                    City = TempData["City"],
+                    BranchName = TempData["BranchName"],
+                    bNo = Model.bNo,
+                    bName = Model.bName,
+                    phone = Model.phone,
+                    address = Model.address,
+                    startTime = Model.startTime,
+                    endTime = Model.endTime
+                }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.bNo)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bName,
+                        htmlAttributes: new
+                        {
+                            @class = "control-label",
+                            @style = "font-weight:bold; font-size:20px;"
+                        })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.bName, 
+                            new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.bName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.phone,
+                        htmlAttributes: new
+                        {
+                            @class = "control-label",
+                            @style = "font-weight:bold; font-size:20px;"
+                        })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.phone, 
+                            new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.address,
+                        htmlAttributes: new
+                        {
+                            @class = "control-label",
+                            @style = "font-weight:bold; font-size:20px;"
+                        })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.address, 
+                            new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.startTime,
+                        htmlAttributes: new
+                        {
+                            @class = "control-label",
+                            @style = "font-weight:bold; font-size:20px;"
+                        })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.startTime, 
+                            new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.startTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.endTime,
+                        htmlAttributes: new
+                        {
+                            @class = "control-label",
+                            @style = "font-weight:bold; font-size:20px;"
+                        })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.endTime, 
+                            new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.endTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="儲存" class="btn btn-default" />
+                    </div>
+                </div>
+
+                <div>
+                    @Html.ActionLink("返回上一頁", "Search")
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

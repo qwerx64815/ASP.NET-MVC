@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<head>
+</head>
+<body>
+    @if (TempData["message"] != null)
+    {
+        <p id="text" style="font-size:16px;"></p>
+        <script type="text/javascript">
+        var message = @Html.Raw(Json.Encode(TempData["message"]));
+        alert(message);
+        document.getElementById("text").innerHTML = "3 秒後跳轉回首頁...";
+        setTimeout(function(){location.href="@Url.Action("Index")"}, 3000);
+        </script>
+    }
+</body>
+</html>

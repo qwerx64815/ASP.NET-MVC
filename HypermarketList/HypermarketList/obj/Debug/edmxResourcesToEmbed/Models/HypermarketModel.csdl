@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HypermarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="bNo" />
+      <PropertyRef Name="cId" />
+    </Key>
+    <Property Name="bNo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="bName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="startTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Company" Relationship="Self.Company_Branch_fk" FromRole="Branch" ToRole="Company" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="cId" />
+    </Key>
+    <Property Name="cId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Branch" Relationship="Self.Company_Branch_fk" FromRole="Company" ToRole="Branch" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="mId" />
+    </Key>
+    <Property Name="mId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="Company_Branch_fk">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Branch" Type="Self.Branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="cId" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="cId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HypermarketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branch" EntityType="Self.Branch" />
+    <EntitySet Name="Company" EntityType="Self.Company" />
+    <EntitySet Name="Member" EntityType="Self.Member" />
+    <AssociationSet Name="Company_Branch_fk" Association="Self.Company_Branch_fk">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Branch" EntitySet="Branch" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -175,9 +175,14 @@ namespace HypermarketList.Controllers
             return View();
         }
 
-        public ActionResult Edit(string name, string bNo)
+        public ActionResult Edit(string name, string CompanyName, string City, string BranchName, string bNo)
         {
-            if (name != null) { ViewBag.username = name; }
+            if (name != null) { 
+                ViewBag.username = name;
+                TempData["CompanyName"] = CompanyName;
+                TempData["City"] = City;
+                TempData["BranchName"] = BranchName;
+            }
             else { ViewBag.username = ""; }
 
             var todos = db.Branch

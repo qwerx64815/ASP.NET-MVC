@@ -67,7 +67,13 @@
                     @if (ViewBag.username != "")
                     {
 
-                        @Html.ActionLink("編輯", "Edit", new { name = ViewBag.username, bNo = item.bNo })
+                        @Html.ActionLink("編輯", "Edit", new { 
+                            name = ViewBag.username, 
+                            bNo = item.bNo,
+                            CompanyName = TempData["CompanyName"],
+                            City = TempData["City"],
+                            BranchName = TempData["BranchName"]
+                        })
                         <br />
                         @Html.ActionLink("刪除", "Delete",
                             new {

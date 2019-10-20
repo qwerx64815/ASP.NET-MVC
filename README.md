@@ -6,7 +6,7 @@ IDE：Visual Studio 2017
 
 資料庫：MS SQL
 
-資料表：Branch(分店)、Company(公司)、Member(會員)
+資料表：Branch（分店）、Company（公司）、Member（會員）
 
 已有網站功能：
 1. 會員註冊

@@ -1,5 +1,5 @@
 # Search Mart Information for ASP.NET-MVC
-My Frist MVC ASP.NET Website For Practice
+My Frist MVC ASP.NET Website For Practice.
 
 # Note
 IDE：Visual Studio 2017
